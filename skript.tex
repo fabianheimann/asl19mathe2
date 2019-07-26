@@ -184,6 +184,37 @@ Anders herum liegt jede untere Schranke $z$ zu $Y$ bereits in $Z$, also ist $z \
 \paragraph{Beweis} Zu (iii) und (v): Übung!
 
 Zu (iv): Eine konsistente Teilmenge $U \subseteq Y$ ist auch konsistent in $X$, da die obere Schranke aus $Y$ auch in $X$ liegt. Also hat $U$ ein Supremum $u$ in $X$. Falls $U = \varnothing$, so ist $x$ als minimales Element Supremum von $U$. Falls $U \neq \varnothing$ ist $u$ auch das Supremum in $Y$. Denn das Element in $U$ stellt zusammen mit der Transitivität sicher, dass $x \leq u$.
+
+\paragraph{Theorem über Ccpos (Teil III)} Sei $X$ mit $\leq$ eine Ccpo, und sei $x \in X$. Dann gilt
+\begin{enumerate}
+ \item[(vi)] Es gibt ein maximales Element von $X$ größer oder gleich $x$, d.h. es gibt ein $m$, sodass $x \leq m$ für alle $a \in X$ mit $x \leq a$ ist $a = m$.
+\end{enumerate}
+\paragraph{Beweis} Mit dem Lemma von Zorn.
+
+Nun können wir Ordnungen zwischen Funktionen von einer beliebigen Menge $D$ auf eine Ordnung, bzw. ccpo definieren:
+\paragraph{Definition ($\leq$ für Funktionen)} Seien $f,g\colon D \to X$ und $X$ Halbordnung. Dann definiere
+\begin{equation}
+ f \leq g \quad :\Leftrightarrow \quad \textnormal{ für alle } d \in D \textnormal{ gilt } f(d) \leq g(d).
+\end{equation}
+
+Eine Ordnungsstruktur auf $X$ lässt sich nun jeweils auf $D \to X$ übertragen:
+\paragraph{Lemma} Sei $X$ eine Halbordnung. Dann ist auch $D \to X$ Halbordnung.
+\paragraph{Beweis} Übung
+\paragraph{Lemma} Sei $X$ ccpo. Dann ist auch $D \to X$ dies.
+\paragraph{Beweis} Sei $F \subseteq \{ f \colon D \to X\}$ eine Menge von Funktionen auf $X$. Wir müssen zeigen: Falls $F$ konsistent, so gibt es ein Supremum. Konsistenz von $F$ bedeutet, dass wir zu allen $f,g\in F$ ein $h \in X^D$ finden, sodass $f \leq h$ und $g \leq h$, d.h. für alle $d \in D$, $f(d) \leq h(d)$ und $g(d) \leq h(d)$. Definiere nun eine Funktion $f$ durch
+\begin{equation}
+ f(d) := \bigvee \{ f(d) \, | \, f \in F \}.
+\end{equation}
+Die Menge $F_d := \{ f(d) \, | \, f \in F \} \subseteq X$ ist konsistent, da zu $f(d), g(d)$ mit $h(d)$ eine obere Schranke in $X$ gegeben ist. Also ist das Supremum wohldefiniert für alle $d \in D$ (da $X$ ccpo). Nun ist $f$ das Supremum von $F \subseteq X^D$, denn:
+\begin{enumerate}
+ \item[(1)] $f \in X^D$ klar.
+ \item[(2)] $f \gtrsim F$: Für alle $f' \in F$ muss $f \geq f'$ sein, d.h. für alle $d \in D$ $f(d) \geq f'(d)$. Aber $f'(d) \in F_d$, also $f(d) \geq f'(d)$.
+ \item[(3)] Sei $h$ eine Funktion $h \in X^D$ mit $h \gtrsim F$, d.h. $h \geq f'$ für alle $f' \in F$. Zu zeigen: $f \leq h$, d.h. für alle $d\in D$ gilt $f(d) \leq h(d)$. $f(d)$ ist als Supremum über $F_d$ die kleinste obere Schranke zu $F_d$. Nun impliziert $h \gtrsim F$, dass $h(d)$ eine obere Schranke zu $F_d$ ist, also $ f(d) \leq h(d)$.
+\end{enumerate}
+\paragraph{Lemma} Sei $X$ vollständiger Verband. Dann ist auch $D \to X$ dies.
+\paragraph{Beweis} $X$ als vollständiger Verband hat ein maximales Element ($\bigwedge \varnothing$), sagen wir $x$. Dann ist die Funktion $d \mapsto x$ maximales Element von $D \to X$ und nach dem Theorem über ccpos Teil (iii) ist es vollständiger Verband.
+
+
 \section{Wahrheitstheorien}
 \subsection{Syntax der Prädikatenlogik}
 \subsection{Klassische und nichtklassische Semantik}
