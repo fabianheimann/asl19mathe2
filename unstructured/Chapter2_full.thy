@@ -1,4 +1,4 @@
-theory Chapter2_prob
+theory Chapter2_full
   imports Main HOL.Zorn HOL.Order_Relation "HOL.Real"
   "HOL-Library.Lattice_Syntax" "HOL-Library.Finite_Lattice"
   HOL.Finite_Set
