@@ -214,10 +214,99 @@ Die Menge $F_d := \{ f(d) \, | \, f \in F \} \subseteq X$ ist konsistent, da zu 
 \paragraph{Lemma} Sei $X$ vollständiger Verband. Dann ist auch $D \to X$ dies.
 \paragraph{Beweis} $X$ als vollständiger Verband hat ein maximales Element ($\bigwedge \varnothing$), sagen wir $x$. Dann ist die Funktion $d \mapsto x$ maximales Element von $D \to X$ und nach dem Theorem über ccpos Teil (iii) ist es vollständiger Verband.
 
+Nachdem wir nun einiges über Funktionen des Typs $D \to X$ gelernt haben, wenden wir uns nun speziellen Funktionen $X\to X$ für $X$ ccpo zu. Als erstes definieren wir
+\paragraph{Definition (Monotonie)} Ein $f\colon X \to X$ heißt monoton, falls für alle $x,y \in X$ gilt
+\begin{equation}
+ x \leq y \quad \Rightarrow \quad f(x) \leq f(y)
+\end{equation}
+\paragraph{Beispiel} Betrachte $X =\{1,2\}$ mit seiner natürlichen Ordnung. Die Identität ist monoton. Aufgabe: Welche Funktionen gibt es noch vom Typ $\{1,2\} \to \{1,2\}$ und welche sind monoton?
 
+Finde für $B_3$ ein Beispiel einer monotonen Funktion ungleich der Identität.
+
+Für $X = \mathbb{N}$ oder andere total geordnete Mengen kann man Monotonie wie üblich über den Graphen visualisieren.
+
+\paragraph{Definition (aufsteigend, absteigend, Fixpunkt)} Sei $X$ eine Halbordnung, $f\colon X \to X$ und $x \in X$ ein Punkt. Dann heißt
+\begin{enumerate}
+ \item[(i)] $x$ aufsteigend (,,sound''), falls $x \leq f(x)$.
+ \item[(ii)] $x$ absteigend (,,replete''), falls $f(x) \leq x$.
+ \item[(iii)] $x$ Fixpunkt, falls $x = f(x)$.
+\end{enumerate}
+\paragraph{Theorem (Existenz von Fixpunkten in ccpos)} Sei $X$ eine ccpo, $x,y \in X$, und sei $X\colon X$ monoton. Dann gilt
+\begin{enumerate}
+ \item[(i)] Falls $x$ aufsteigend ist gibt es einen Fixpunkt $z$ mit $x \leq z$.
+ \item[(ii)] Falls $x$ aufsteigend, $y$ absteigend mit $x \leq y$, dann gibt es einen Fixpunkt $z$ mit $x \leq z \leq y$.
+\end{enumerate}
+\paragraph{Beweis} Sei $x$ ein aufsteigendes Element in $X$. Dann ist
+\begin{equation}
+ Y = \{ y \in X \, | \, y \textnormal{ ist aufsteigend und}\quad x \leq y \}
+\end{equation}
+eine ccpo. (siehe Aufgabenzettel)
+
+Gemäß dem Theorem über ccpos Teil (vi) gibt es also ein maximales Element $m$ in $Y$. Aus $m \in Y$ folgt $x \leq y$, also verbleibt zu zeigen, dass $m = f(m)$. Da $m$ aufsteigend ist, ist $x \leq m \leq f(m)$. Aufgrund der Montonie von $f$ ist $f(m) \leq f(f(m))$. Also ist $f(m)$ ebenfalls aufsteigend und $f(m) \in Y$. Da aber $m$ maximal in $Y$ war und $m \leq f(m)$, muss $m = f(m)$.
+
+\paragraph{Definition (Menge der Fixpunkte)} Sei $f\colon X \to X$ eine Funktion auf einer Halbordnung $\leq$, sei $f\colon X \to X$. Dann definiere
+\begin{equation}
+ F(X,f) = \{ x \in X \, | \, f(x) = x \}
+\end{equation}
+zusammen mit der Ordnung $\leq \upharpoonright_{F(X,f)}$ als Menge der Fixpunkte.
+\paragraph{Theorem (Visser's Fixpunkttheorem)} Sei $f\colon X \to X$ eine montone Operation auf einer Ccpo $(X, \leq)$. Dann ist $F(X,f)$ eine Ccpo. Falls $X$ ein größtes Element hat, dann auch $F(X,f)$.
+\paragraph{Theorem (Knaster-Tarski Fixpunkttheorem)} Sei $f\colon X \to X$ eine monotone Operation auf einem vollständigen Verband $(X, \leq)$. Dann ist $F(X,f)$ auch ein vollständiger Verband.
+\paragraph{Beweis} Aus dem Visser'schen Fixpunktsatz mit dem Theorem über Ccpos (iii).
 \section{Wahrheitstheorien}
+Die behandelten Theoreme haben interessante Folgerungen für Wahrheitstheorien. Letzteres sind Theorien, in denen eine formale Sprache ein Wahrheitsprädikat für eine (andere oder gleiche) formale Sprache enthält. Um dies genau zu verstehen, müssen wir zuerst eine formale Sprache definieren. Dies geschieht in zwei Schritten: Syntax, Semantik.
 \subsection{Syntax der Prädikatenlogik}
+Zur Definition der Syntax führen wir als ersten den Begriff des Termes induktiv ein. Gegeben seien nun eine Menge von Zeichen für Relationen $\mathcal{R}$, eine Menge von Zeichen für Namen $\mathcal{N}$, abzählbar viele Variablen $\mathcal{V}=\{ v_1, v_2, \dots \}$. Dann definieren wir
+\paragraph{Definition (Term)} Zu Mengen $\mathcal{N}, \mathcal{V}$ ist ein Term definiert durch:
+\begin{itemize}
+ \item Namen $X \in \mathcal{N}$ sind Terme.
+ \item Variablen $X \in \mathcal{V}$ sind Terme.
+\end{itemize}
+\paragraph{Definition (Formel)} 
 \subsection{Klassische und nichtklassische Semantik}
 \subsection{Monotonie der Schemata}
 
+\newpage
+\section*{Eine spezielle Ccpo}
+Sei $X$ ccpo, $x \in X$, $f\colon X \to X$ monoton. Definiere $Y \subseteq X$,
+\begin{equation*}
+ Y = \{ y \in X \, | \, y \textnormal{ ist aufsteigend bzgl. } f \textnormal{ und}\quad x \leq y \}
+\end{equation*}
+Zu zeigen: $Y$ ist ccpo, oder: Jede konsistente Menge $Z \subseteq Y$ hat ein Supremum in $Y$.
+
+Betrachten wir zuerst den Fall $Z = \varnothing$. Dann ist $x$ als kleinstes Element in $Y$ das Supremum von $Z$ in $Y$.
+
+Nun zum Fall $Z \neq \varnothing$.
+\paragraph{Behauptung 1} Eine konsistente Menge $Z \subseteq Y$ ist auch konsistent in $X$.
+\paragraph{Beweis} …
+
+Aufgrund von Behauptung 1 hat $Z$ als Teilmenge von $X$ ein Supremum $b$. Erhalte also $b$ mit
+\begin{enumerate}
+ \item[(1)]
+ \item[(2)]
+ \item[(3)]
+\end{enumerate}
+Nun zeigen wir noch Behauptung 2 und 3, wobei Behauptung 3 den Beweis abschließt.
+\paragraph{Behauptung 2} $b \in Y$.
+\paragraph{Beweis} Zu zeigen sind zwei Teilbehauptungen:
+\begin{enumerate}
+ \item[(2a)] $x \leq b$
+ \item[(2b)] $b$ ist aufsteigend bzgl. $f$.
+\end{enumerate}
+Zu (2a): Da $Z \neq \varnothing$ finden wir ein $\hat z \in Z$. Dann gilt
+\begin{equation}
+ x \leq \hat z, \quad \hat z \leq b,
+\end{equation}
+weil …
+
+Daraus folgt (2a) wegen …
+
+Nun zu (2b). Wir wollen zeigen, dass $b \leq f(b)$. Dazu zeigen wir, dass $f(b)$ obere Schranke von $Z$ ist. Mit (3) ergibt sich dann (2a). Sei also $z \in Z$. Zu zeigen ist nun $z \leq f(b)$. Aus (2) erhalte $z \leq b$ und mit Monotonie $f z \leq f b$. Außerdem ist $z$ als Element von $Z$ aufsteigend und …
+\paragraph{Behauptung 3} $b$ ist das Supremum von $Z$ als Teilmenge von $Y$.
+\paragraph{Beweis} Es sind drei Dinge zu zeigen, und zwar
+\begin{enumerate}
+ \item[(1)]
+ \item[(2)]
+ \item[(3)]
+\end{enumerate}
+(1) gilt wegen Behauptung 2. (2) und (3) gelten, weil…
 \end{document}
